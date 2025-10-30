@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Super Seite</title>
+    <link rel="stylesheet" href="style.css"> 
+  </head> 
+  <body>
+    <h1>Meine super Seite</h1>
+    <p>Mein geheimes Passwort finden:</p>
+        Passwort 1 <input id="userInput1" value=""></input> 
+        <button onclick="
+          if(document.getElementById('userInput1').value === 'zuckerwatte123')
+              {alert('Du hast das Passwort 1 gefunden🦆🦆🦆!!!');}
+          else
+              {alert('Hoppla. Falsches Passwort 1.');}">Abschicken
+        </button>
+    <br>
+    <br>
+    <br>
+    <p>Mein super geheimes Passwort finden:</p>
+        Passwort 2 <input id="userInput2" value=""></input>
+        <button onclick="
+          fetch('secretPasswordFile.txt')
+          .then(response => response.text())
+          .then(secretPassword => {
+            secretPassword = secretPassword.trim(); 
+            const userInput = document.getElementById('userInput2').value;
+             if(userInput === secretPassword){
+              alert('Du hast das Passwort 2 gefunden🦆🦆🦆!!!');
+            } else {
+              alert('Hoppla. Falsches Passwort 2.');
+            }
+          })
+        .catch(err => console.error(err));">Abschicken
+        </button>
+    <br>
+    <br>
+    <br>
+    <div id="cssHolder" class="secret-hider"></div>
+    <p>Mein super super geheimes Passwort finden:</p>
+        Passwort 3 <input id="userInput3" value=""></input> 
+        <button onclick="
+          const userInput = document.getElementById('userInput3').value;
+          const el = document.querySelector('#cssHolder');
+
+          let content = window.getComputedStyle(el).getPropertyValue('font-family') || '';
+
+          if (userInput === content) {
+            alert('Du hast das Passwort 3 gefunden🦆🦆🦆!!!');
+          } else {
+            alert('Hoppla. Falsches Passwort 3.');
+          }
+          "
+          >Abschicken</button>
+  </body>
+</html>
+
+
+
